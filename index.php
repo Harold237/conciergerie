@@ -1,9 +1,27 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+
+<body>
+
+
 <?php
 
-include("./connexion.php");
-$connect = mysqli_connect('127.0.0.1',"root","root","projet_base_de_donnees",'8889');
-$req = 'SELECT * FROM client';
-if(isset($_POST["Search"])){
+include ('./connexion.php');
+$req = 'SELECT * FROM client natural join membership natural join 
+    comptefidelite natural join avoiradress natural join adress natural join contactdetails';
+$result = $conn->query($req);
+
+/*if(isset($_POST["Search"])){
     $search=$_POST["Search"];
     $Option="";
     if(isset($_POST["OptionNom"])){
@@ -24,67 +42,52 @@ if(isset($_POST["Search"])){
     }else{
         $req = 'SELECT * FROM client';
     }
-}
-$ReqListeClient = mysqli_query($connect,$req);
+}*/
+
 
 ?>
 <section>
-    <h2>LISTE DES JEUX DEJA EMPRUNTES</h2>
-    <table border="1" >
-        <thead>
-        <th>Numéro</th>
-        <th>Nom</th>
-        <th>Email</th>
-        <th>Facebook</th>
-        <th>Instagram</th>
+    <h2>LISTE DES ClIENTS</h2>
+    <table class="table">
+        <thead class="thead-dark">
+        <th scope="col">Numéro</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Telephone</th>
+        <th scope="col">Email</th>
+        <th scope="col">Facebook</th>
+        <th scope="col">Instagram</th>
+        <th scope="col">membership</th>
+        <th scope="col">Total points</th>
+        <th scope="col">Modifier</th>
+        <th scope="col">Supprimer</th>
         </thead>
-        <tbody>
+
         <?php
-        while ($row = mysqli_fetch_array($ReqListeClient)) {
-            ?>
-            <tr>
-                <td><a href="DetailJeu.phpeuId=<?= $row['JeuId'] ?>"><?= date_format(date_create($row['DateReservation']),"d/m/Y") ?></a></td>
-                <td><a href="DetailJeu.phpeuId=<?= $row['JeuId'] ?>"><?= $row['Nom'] ?></a></td>
-                <td><a href="DetailJeu.phpeuId=<?= $row['JeuId'] ?>"><?= $row['Activite'] ?></a></td>
-                <td><a href="DetailJeu.phpeuId=<?= $row['JeuId'] ?>"><?= $row['Type'] ?></a></td>
-                <td><a href="DetailJeu.phpeuId=<?= $row['JeuId'] ?>"><?= $row['AgeMin'] ?> (+)</a></td>
-                <td><a href="DetailJeu.phpeuId=<?= $row['JeuId'] ?>"><?= $row['Description'] ?></a></td>
-                <td><a href="DetailJeu.phpeuId=<?= $row['JeuId'] ?>"><?= $row['Libelle'] ?></a></td>
-            </tr>
-        <?php            }
-        ?>
-        </tbody>
+        $row = $result->fetch_array();
+        do
+        {
+
+            echo'<tbody><tr>
+                  <td scope="row">'.$row['num_client'].'</td>
+                  <td scope="row">'.$row['name_client'].'</td>
+                  <td scope="row">'.$row['desc_adress'].','.$row['city'].','.$row['PostalCode'].'</td>
+                  <td scope="row">'.$row['num_phone'].'</td>
+                  <td scope="row">'.$row['login_insta'].'</td>
+                  <td scope="row">'.$row['login_fb'].'</td>
+                  <td scope="row">'.$row['login_insta'].'</td>
+                  <td scope="row">'.$row['desc_membership'].'</td>
+                  <td scope="row">'.$row['points'].'</td>
+                  <td scope="row"><i class="fas fa-user-edit"></i></td>
+                  <td scope="row"><i class="fas fa-user-slash"></i></td>
+                 </tr>
+                 </tbody>' ;
+        }while ($row = $result->fetch_array());
+         ?>
     </table>
 
 
 </section>
-<style>
-    table{
-        width:100%;
-        border-collapse:collapse;
-    }
-    td,th{
-        border:2px solid #009aff;
-    }
-    a{
-        text-decoration:none;
-    }
-    input[type=text]{
-        height:30px;
 
-    }
-    button{
-
-        color:white;
-        background-color:#009aff;
-        padding:7px;
-        border:none;
-    }
-    thead{
-        color:white;
-        background-color:#009aff;
-    }
-    h1,h2,h3{
-        text-align:center;
-    }
-</style>
+</body>
+</html>
