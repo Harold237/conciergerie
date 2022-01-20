@@ -1,0 +1,37 @@
+.navbar-dark
+{
+  background-color: #CC0000;
+}
+
+.counter
+{
+    background-color: #eaecf0;
+    text-align: center;
+    padding-top: 30px;
+}
+.client
+{
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+.counter-count
+{
+    font-size: 30px;
+    background-color: #990000;
+    border-radius: 50%;
+    position: relative;
+    color: #ffffff;
+    text-align: center;
+    line-height: 100px;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+
+.client-p
+{
+    font-size: 30px;
+    color: black;
+    line-height: 34px;
+}
+

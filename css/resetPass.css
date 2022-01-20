@@ -1,0 +1,28 @@
+body
+{
+	background-image: url("../img/redTech.png");
+	background-size: cover;
+	background-attachment: fixed;
+}
+.card
+{
+	margin-top: 100px;
+	background-color: #262626;
+}
+.card-header
+{
+	color: floralwhite;
+	background-color: transparent;
+	margin-top: 20px;
+	font-family: serif;
+	/*text-decoration: underline overline red;*/
+	text-shadow: 4px 4px 10px red;
+}
+.card-body
+{
+	color: floralwhite;
+	background-color: #262626;
+	font-size: 1.2em;
+}
+
+

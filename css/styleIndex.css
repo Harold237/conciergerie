@@ -1,0 +1,77 @@
+#index
+{
+	background-image: url("../img/background.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+}
+.content
+{
+	background-color: floralwhite;
+}
+.logicon
+{
+	margin-right: 10px;
+	margin-top: 10px;
+	color: floralwhite;
+}
+.profile-img-card 
+{
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    border-radius: 50%;
+}
+#loginCard
+{
+	background-color: #262626;
+	padding: 25px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 100px;
+    border-radius: 2px;
+}
+.profile-name-card 
+{
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+    color: floralwhite;
+}
+.btn-signin 
+{
+    padding: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    height: 36px;
+    border-radius: 3px;
+    border: none;
+}
+.forgot-password 
+{
+    color: floralwhite;
+    text-align: center;
+}
+.forgot-password:hover
+{
+    color: #FF0000;
+}
+.modal .modal-content
+{
+    background-color: black;
+}
+.modal .modal-header 
+{
+  color: floralwhite;
+  background-color: #262626;
+}
+.modal .modal-header button 
+{
+    color: floralwhite;
+}
+.modal .modal-body 
+{
+  background-color: #808080;
+}
+
