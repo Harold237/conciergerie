@@ -16,36 +16,18 @@
 
 
 <?php
-
 include ('./connexion.php');
-$req = 'SELECT * FROM client ';
-$result = $conn->query($req);
-
-/*if(isset($_POST["Search"])){
-    $search=$_POST["Search"];
-    $Option="";
-    if(isset($_POST["OptionNom"])){
-        $Option .="Nom LIKE '%$search%' OR ";
-    }
-    if(isset($_POST["OptionAge"])){
-        $Option .="AgeMin LIKE '%$search%' OR ";
-    }
-    if(isset($_POST["OptionDescription"])){
-        $Option .="Description LIKE '%$search%' OR ";
-    }
-    if(isset($_POST["OptionType"])){
-        $Option .="Type LIKE '%$search%' OR ";
-    }
-    $Option = substr($Option, 0, -3);
-    if($Option != ""){
-        $req = 'SELECT * FROM client AND '.$Option;
-    }else{
-        $req = 'SELECT * FROM client';
-    }
-}*/
-
-
 ?>
+<div class="input-group" style="text-align: center;">
+<form action="clients.php" method="post" class="d-flex">
+  <div class="form-outline" style="width: 500px;">
+      <input type="search" name="search" class="form-control" placeholder="Chercher un client par son nom ou son identifiant" />
+  </div>
+    <button type="submit" class="btn btn-danger">
+        <i class="fas fa-search"></i>
+    </button>
+</form>
+</div>
 <section>
     <h2>LISTE DES ClIENTS <a href="ajouterClient.php" ><button type='button' class='btn btn-danger' style="float:right;font-size:20px" >ajouter client</button></a></h2>
     <table class="table" style="padding-left:10px">
@@ -58,13 +40,24 @@ $result = $conn->query($req);
         
         </thead>
 
+
         <?php
-        $row = $result->fetch_array();
+        if(isset($_POST["search"])){
+            $search=$_POST["search"];
+            $req = "select * from client where num_client Like '%".$search."%' or name_client Like '%".$search."%'";
+            $result=$conn->query($req);
+            $row = $result->fetch_array();
+
+        }else {
+            $req = 'SELECT * FROM client ';
+            $result = $conn->query($req);
+            $row = $result->fetch_array();
+        }
         do
         {
    
             echo'<tbody><tr>
-                  <td scope="row">'.$row['num_client'].'</td>
+                  <td scope="row"><a href="ficheClient.php?num='.$row['num_client'].'">'.$row['num_client'].'</a></td>
                   <td scope="row">'.$row['name_client'].'</td>
                   <td scope="row">'.$row['email_client'].'</td>
                  
@@ -82,6 +75,7 @@ $result = $conn->query($req);
 
 
 </section>
+
       </div>
 
       <script type="text/javascript">

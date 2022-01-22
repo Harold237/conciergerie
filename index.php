@@ -18,7 +18,7 @@
 
 include ('./connexion.php');
 $req = 'SELECT * FROM client natural join membership natural join 
-    comptefidelite natural join avoiradress natural join adress natural join contactdetails';
+    comptefidelite natural join  adress natural join contactdetails';
 $result = $conn->query($req);
 
 /*if(isset($_POST["Search"])){
