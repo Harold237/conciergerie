@@ -7,7 +7,7 @@
 		
 		$result=mysqli_query($conn,"SELECT count(*) as total from client");
 		$data=mysqli_fetch_assoc($result);
-		echo $data['total'];
+	
 		$id="22-SPR-".$data['total'];
 		$nom = mysqli_real_escape_string($conn, $_POST['nom']);
 		$email = mysqli_real_escape_string($conn, $_POST['email']);

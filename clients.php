@@ -69,10 +69,10 @@ $result = $conn->query($req);
                   <td scope="row">'.$row['email_client'].'</td>
                  
                   <td scope="row">
-                  <a onClick=\"deleteClient('.$row['num_client'].')\">
+                  <a href ="gestionClient.php?num_client='.$row['num_client'].'">
                   <i class="fas fa-user-edit" style="color:green;font-size:25px"></i>
                   </a>
-                  <i class="fas fa-user-slash" style="margin-left:30px;color:red;font-size:25px"></i></td>
+                
                
                  </tr>
                  </tbody>' ;
