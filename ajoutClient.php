@@ -19,7 +19,7 @@
 		if (mysqli_query($conn, $query)) 
 		{
 			$number = count($_POST["name"]);
-			$number2 = count($_POST["numero"]);
+			
 			
 		if($number > 0) { 
 		$message = false;
@@ -34,9 +34,10 @@
 		
 		}}
 		
+		$number2 = count($_POST["numero"]);
 		if($number2 > 0) { 
 		$message = false;
-		for($i=0; $i<$number; $i++) {
+		for($i=0; $i<$number2; $i++) {
          if(trim($_POST["numero"][$i] != '')) { 
              $sql = "INSERT INTO contactdetails(num_phone,num_client) VALUES('".$_POST["numero"][$i]."','$id')";
              mysqli_query($conn, $sql);

@@ -126,8 +126,8 @@
 
 				 var i2 = 1;
                $('#add_field2').click(function(){  
-                   i++;  
-                   $('#dynamic_field_append2').append('<div class="row padding_t_b" id="row_remove2'+i+'" style="margin-left:0%;margin-top:10px"> <label for="city" style="" >autre numero de tele : </label><div class="col-md-6 col-md-offset-2"><input type="text" name="numero[]" placeholder="numero de telephone" class="form-control" style="margin-top:10px" pattern="[0-9]+" required></div><div class="col-md-4"><button type="button" name="remove2" id="'+i+'" class="btn btn-danger btn_remove2">Remove (X)</button></div></div>');
+                   i2++;  
+                   $('#dynamic_field_append2').append('<div class="row padding_t_b" id="row_remove2'+i2+'" style="margin-left:0%;margin-top:10px"> <label for="city" style="" >autre numero de tele : </label><div class="col-md-6 col-md-offset-2"><input type="text" name="numero[]" placeholder="numero de telephone" class="form-control" style="margin-top:10px" pattern="[0-9]+" required></div><div class="col-md-4"><button type="button" name="remove2" id="'+i2+'" class="btn btn-danger btn_remove2">Remove (X)</button></div></div>');
                });
 
 			$(document).on('click', '.btn_remove2', function() {
