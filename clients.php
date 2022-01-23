@@ -16,6 +16,7 @@
 
 
 <?php
+session_start();
 include ('./connexion.php');
 include ('navbar.php');
 session_unset();
