@@ -42,6 +42,7 @@ include ('./connexion.php');
 
 
         <?php
+		//hddhdhdhdhddhdh
         if(isset($_POST["search"])){
             $search=$_POST["search"];
             $req = "select * from client where num_client Like '%".$search."%' or name_client Like '%".$search."%'";
