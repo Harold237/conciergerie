@@ -4,14 +4,14 @@ include ('./connexion.php');
 //requete pour avoir le nom, email,login_fb,login_insta,membership et points
 $req = "SELECT * FROM client natural join membership natural join 
     comptefidelite  where num_client ='".$_GET['num']."'";
-$result = mysqli_query($conn, $req);
-$row = mysqli_fetch_assoc($result);
+$result = $conn->query($req);
+$row = $result->fetch_array();
 //requete pour avoir les adresses du client
 $req1="select * from adress where id_client='".$_GET['num']."'";
-$result1= mysqli_query($conn,$req1); 
+$result1=$conn->query($req1);
 //requete pour avoir les numéros téléphones du client
 $req2="select * from contactdetails where num_client='".$_GET['num']."'";
-$result2= mysqli_query($conn,$req2);
+$result2=$conn->query($req2);
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -98,7 +98,11 @@ $result2= mysqli_query($conn,$req2);
                                 <?php
                                 $row2 = $result2->fetch_array();
                                 do {
-                                    echo '<p class="text-muted mb-0" >'.$row2['num_phone'].'</p>';
+                                if($row2!=null ) {
+                                    echo '<p class="text-muted mb-0" >' . $row2['num_phone'] . '</p>';
+                                }else{
+                                    echo '<p class="text-muted mb-0" >Aucun numero du telephone n`est renseigné</p>';
+                                }
                                 }while($row2 = $result2->fetch_array());
                                 ?>
                             </div>
@@ -112,7 +116,11 @@ $result2= mysqli_query($conn,$req2);
                                 <?php
                                 $row1 = $result1->fetch_array();
                                 do {
-                                   echo '<p class="text-muted mb-0" >'.$row1['desc_adress'].','.$row1['city'].','.$row1['PostalCode'].'</p>';
+                                    if($row1!=null ){
+                                        echo '<p class="text-muted mb-0" >'.$row1['desc_adress'].','.$row1['city'].','.$row1['PostalCode'].'</p>';
+                                    }else{
+                                        echo '<p class="text-muted mb-0" >Aucune adresse n`est renseignée</p>';
+                                         }
                                 }while($row1 = $result1->fetch_array());
                                 ?>
                             </div>

@@ -11,26 +11,24 @@
 		$id="22-SPR-".$data['total'];
 		$nom = mysqli_real_escape_string($conn, $_POST['nom']);
 		$email = mysqli_real_escape_string($conn, $_POST['email']);
-		
+		$membership=(int)mysqli_real_escape_string($conn, $_POST['drone']);
+		$tel = mysqli_real_escape_string($conn, $_POST['tel']);
 		
 
-		$query = "INSERT INTO client(num_client,name_client, email_client, id_memebership) VALUES('$id','$nom', '$email', 1)";
+		$query = "INSERT INTO client(num_client,name_client, email_client, id_memebership) VALUES('$id','$nom', '$email',1)";
 		if (mysqli_query($conn, $query)) 
 		{
-			
-			$query = "INSERT INTO comptefidelite(date_création,	points, num_client ) VALUES(curdate(),100, '$id')";
-			mysqli_query($conn, $query);
-			 
-			$number = count($_POST["name"]);
-			
-			
+            $query = "INSERT INTO comptefidelite(date_creation,points, num_client ) VALUES(curdate(),100, '$id')";
+            if(mysqli_query($conn, $query)){
+                $number = count($_POST["name"]);
+            }
 		if($number > 0) { 
 		$message = false;
 		for($i=0; $i<$number; $i++) {
          if(trim($_POST["name"][$i] != '')) { 
              $sql = "INSERT INTO adress(desc_adress,city,PostalCode,id_client) VALUES('".$_POST["name"][$i]."' ,'".$_POST["city"][$i]."','".$_POST["codeP"][$i]."','$id')";
-             mysqli_query($conn, $sql);
-             $message = true;
+             if(mysqli_query($conn, $sql)){
+                 $message = true;}
          } else {
              echo "Please Enter Name";
          }
