@@ -64,7 +64,14 @@ include ('navbar.php');
                  
                   <td scope="row">
                   <a href ="gestionClient.php?num_client='.$row['num_client'].'">
-                  <i class="fas fa-user-edit" style="color:green;font-size:25px"></i>
+				  
+				  <i class="fas fa-user-edit" style="color:green;font-size:25px"></i>
+                  
+                  </a>
+				  <a href="ficheClient.php?num='.$row['num_client'].'">
+				  
+				  <img src="img/display.png" style="width: 30px;margin-left:20px"/>
+                  
                   </a>
                 
                

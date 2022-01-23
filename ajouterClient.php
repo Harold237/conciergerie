@@ -88,8 +88,16 @@
 		 			<label for="email" style="font-weight:bold;font-size:19px;" >Email: </label>
 		 			<input type="email" name="email" class="form-control" placeholder="exemple@exemple.exemlp" required>
 		 		</div>
+				<div class="form-group">
+		 			<label for="facebook" style="font-weight:bold;font-size:19px;" >Facebook: </label>
+		 			<input type="text" name="facebook" class="form-control" placeholder="facebook" >
+		 		</div>
+				<div class="form-group">
+		 			<label for="instagram" style="font-weight:bold;font-size:19px;" >instagram: </label>
+		 			<input type="text" name="insta" class="form-control" placeholder="instagrame" >
+		 		</div>
              
-		 		<input type="submit" name="submit" value="Ajouter"  class="btn btn-success " style="width:40%;margin-left:20%;font-weight:bold;font-size:23px;">
+		 		<input type="submit" name="submit" value="Ajouter"  class="btn btn-success " style="width:60%;margin-left:20%;font-weight:bold;font-size:23px;margin-top:20px">
 		</form>
 
 
