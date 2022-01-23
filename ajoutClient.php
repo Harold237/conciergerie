@@ -11,10 +11,11 @@
 		$id="22-SPR-".$data['total'];
 		$nom = mysqli_real_escape_string($conn, $_POST['nom']);
 		$email = mysqli_real_escape_string($conn, $_POST['email']);
-		
+		$face=mysqli_real_escape_string($conn, $_POST['facebook']);
+		$insta=mysqli_real_escape_string($conn, $_POST['insta']);
 		
 
-		$query = "INSERT INTO client(num_client,name_client, email_client, id_memebership) VALUES('$id','$nom', '$email', 1)";
+		$query = "INSERT INTO client(num_client,name_client, email_client,login_fb,login_insta, id_memebership) VALUES('$id','$nom', '$email','$face','$insta', 1)";
 		if (mysqli_query($conn, $query)) 
 		{
 			
