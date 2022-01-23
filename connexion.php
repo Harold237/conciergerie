@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
-$mdb="projet base de donnee";
-$port="3306";
+$password = "root";
+$mdb="projet_base_de_donnees";
+$port="8889";
 // Create connection
 $conn = new mysqli($servername, $username, $password,$mdb);
