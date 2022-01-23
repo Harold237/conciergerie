@@ -64,7 +64,7 @@ require_once ('./header.php');
                                     <div class="border rounded">
                                         <div class="row bg-white">
                                             <div class="col-md-3 pl-0">
-                                                <img src="<?=$row['product_image']?>" alt="Image1" class="img-fluid">
+                                              <!--  <img src="<?=$row['product_image']?>" alt="Image1" class="img-fluid">-->
                                             </div>
                                             <div class="col-md-6">
                                                 <h5 class="pt-2"><?=$row['num_product']?></h5>

@@ -18,12 +18,18 @@
 
 include ('./connexion.php');
 //$conn = mysqli_connect('127.0.0.1',"root","root","projet_base_de_donnees",'8889');
-$req = 'SELECT * FROM order_ natural join product natural join client';
+$req = 'SELECT * FROM order_ natural join client';
 $result = $conn->query($req);
 include ('./header.php');
+if(isset($_GET['action']) && $_GET['action']=='supprimer' ){
+    $sql = "DELETE FROM order_ WHERE num_order ='".$_GET['id']."'";
+
+    $result = mysqli_query($conn, $sql);
+    header('location: listeCommande.php');
+}
 ?>
 <section>
-    <h2>LISTE DES COMMANDES</h2>
+    <h2 style="margin-top:5%;margin-bottom:5%;text-align: center;">LISTE DES COMMANDES</h2>
     <table class="table">
         <thead class="thead-dark">
         <th scope="col">NUMERO COMMANDE</th>
@@ -41,11 +47,12 @@ include ('./header.php');
         while ($row = mysqli_fetch_assoc($result)){
             ?>
             <tr>
-                <td><?=$row['numero_commande']?></td>
-                <td><?=$row['date_commande']?></td>
-                <td><?=$row['status_commande']?></td>
-                <td><a href="detail_commande.php?id=<?=$row['numero_commande']?>">Voir les détails</a></td>
-                <td><a href="liste_commandes.php?id=<?=$row['numero_commande']?>">Supprimer</a></td>
+                <td><?=$row['num_order']?></td>
+                <td><?=$row['date_order']?></td>
+                <td><?=$row['status_order']?></td>
+                <td><?=$row['num_client']?></td>
+                <td><a href="detail_commande.php?id=<?=$row['num_order']?>"><i class="fas fa-edit" ></i></a></td>
+                <td><a href="listeCommande.php?action=supprimer&id=<?=$row['num_order']?>"><i class="fas fa-trash-alt" style="color: red;"></i></a></td>
 
             </tr>
             <?php

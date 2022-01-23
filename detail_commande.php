@@ -24,14 +24,14 @@ require_once ('./connexion.php');
     <body class="bg-light">
 
     <?php
-    require_once ('php/header.php');
+    require_once ('./header.php');
     if (isset($_GET['id'])){
         $id=    $_GET['id'];
     }
     if (isset($_GET['action'])){
         if($_GET['action'] == 'supprimer'){
             $idsupprimer = $_GET['num_order'];
-            $sql = "DELETE FROM order_ WHERE num_order = ".$idsupprimer;
+            $sql = "DELETE FROM contenirproduct WHERE num_order ='".$_GET['num_order']."' and num_product='".$_GET['num_product']."'";
 
             $result = mysqli_query($conn, $sql);
             header('location: listeCommande.php');
@@ -50,7 +50,7 @@ require_once ('./connexion.php');
 
                     $total = 0;
 
-                    $sql = "SELECT * FROM `contenirproduct`,product WHERE contenirproduct.num_order = ".$id." AND contenirproduct.num_product = product.num_product ";
+                    $sql = "SELECT * FROM contenirproduct natural join product WHERE num_order ='".$id."'";
 
                     $result = mysqli_query($conn, $sql);
                     while ($row = mysqli_fetch_assoc($result)){
@@ -59,17 +59,18 @@ require_once ('./connexion.php');
                             <div class="border rounded">
                                 <div class="row bg-white">
                                     <div class="col-md-3 pl-0">
-                                        <img src="<?=$row['product_image']?>" alt="Image1" class="img-fluid">
+                                        <!--<img src="<?=$row['product_image']?>" alt="Image1" class="img-fluid">-->
                                     </div>
                                     <div class="col-md-6">
                                         <h5 class="pt-2"><?=$row['name_product']?></h5>
                                         <small class="text-secondary">Seller: dailytuition</small>
                                         <h5 class="pt-2">$<?=$row['buy_price']?></h5>
                                         <h5 class="pt-2">Quantité:<input type='number' min="1" class='form-control form-control-xs' name="amount_product" value='<?=$row['amount_product']?>'> </h5>
-                                        <input type="hidden" name="num_product,num_order" value="<?=$row['num_product,num_order']?>">
+                                        <input type="hidden" name="num_product" value="<?=$row['num_product']?>">
+                                        <input type="hidden" name="num_order" value="<?=$row['num_order']?>">
                                         <div class="col-md-12 row">
                                             <div class="col-md-6"><button type="submit" class="btn btn-info mx-2">Modifier </button></div>
-                                            <div class="col-md-6"><a href="detail_commande.php?action=supprimer&num_product,num_order=<?=$row['num_product,num_order']?>" class="btn btn-warning mx-2">Supprimer </a></div>
+                                            <div class="col-md-6"><a href="detail_commande.php?action=supprimer&num_product=<?=$row['num_product']?>&num_order=<?=$row['num_order']?>" class="btn btn-warning mx-2">Supprimer </a></div>
                                         </div>
                                         <br>
                                     </div>
