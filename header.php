@@ -1,26 +1,16 @@
 
 <header id="header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a href="index.php" class="navbar-brand">
-            <h3 class="px-5">
-                <i class="fas fa-shopping-basket"></i> Shopping Cart
-            </h3>
-        </a>
-        <a href="ListeCommande.php" class="navbar-brand">
-            <h3 class="px-5">
-                LISTE DES COMMANDES
-            </h3>
-        </a>
-        <button class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target = "#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-        >
+        <a class="navbar-brand" href="#">Gestion</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav" >
+                <a class="nav-item nav-link active" href="clients.php" style="color: white;">Clients <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="listeCommande.php" style="color: white;">Commandes</a>
+            </div>
+        </div>
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="mr-auto"></div>

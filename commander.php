@@ -2,9 +2,12 @@
 require_once ('./connexion.php');
 session_start();
 $num_client = $_GET["num"];
-$result=mysqli_query($conn,"SELECT count(*) as total from order_");
+$result=mysqli_query($conn,"SELECT num_order from order_ order by num_order DESC LIMIT 1");
 $data=mysqli_fetch_assoc($result);
-$num_commande='22-MAQ-C00'.$data['total'];
+$num = explode("0", $data['num_order']);
+$numPlus=intval($num[count($num)-1])+1;
+$num_commande='22-MAQ-C00'.$numPlus;
+
 $sql = "INSERT INTO order_(num_order,date_order, status_order,num_client) VALUES ('$num_commande',curdate(), 'To Buy','$num_client')";
 $result = mysqli_query($conn, $sql);
 $id_commande = $conn->insert_id;
