@@ -17,8 +17,9 @@
 
 <?php
 include ('./connexion.php');
+include ('navbar.php');
 ?>
-<div class="input-group" style="text-align: center;margin-left:20%">
+<div class="input-group" style="text-align: center;margin-left:20%;margin-bottom: 5%;">
 <form action="clients.php" method="post" class="d-flex">
   <div class="form-outline" style="width: 500px;">
       <input type="search" name="search" class="form-control" placeholder="Chercher un client par son nom ou son identifiant"  />
