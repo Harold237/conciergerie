@@ -121,7 +121,7 @@ require_once ('./connexion.php');
             </div>
 				
         </div>
-		<a href="modiferProduit_Ajout.php?num_order=<?=$id ?>" class="btn btn-warning mx-2">ajouter produit </a></div>
+		<a href="modiferProduit_Ajout.php?num_order=<?php echo $id;?>" class="btn btn-warning mx-2">ajouter produit </a></div>
 		
     </div>
 

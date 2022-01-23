@@ -23,10 +23,13 @@ require_once ('./connexion.php');
 <body>
 
 
-<?php  require_once ('./navbar.php'); 
+<?php
+require_once ('./navbar.php');
+if(isset($_POST['num_product'])){
+$sql = "INSERT INTO contenirproduct(num_order,num_product, amount_product) VALUES ('".$_GET['num_order']."','".$_POST['num_product']."', 1)";
 
- 
-
+$result = mysqli_query($conn, $sql);
+}
 ?>
 <div class="container">
     <div class="row text-center py-5">
@@ -39,7 +42,7 @@ require_once ('./connexion.php');
             ?>
             <div class="col-md-3 col-sm-6 my-3 my-md-0" >
               
-                  <form action="modiferProduit_ajout.php" method="post">
+                  <form action="modiferProduit_ajout.php?num_order=<?= $_GET['num_order']?>" method="post">
                     <div class="card shadow"style="margin-top:10px" >
                         <div>
                             <img src="<?=$row['product_image']?>" alt="Image1" class="img-fluid card-img-top">
