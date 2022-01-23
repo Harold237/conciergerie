@@ -52,7 +52,7 @@ if(isset($_GET['action']) && $_GET['action']=='supprimer' ){
                 <td><?=$row['status_order']?></td>
                 <td><?=$row['num_client']?></td>
                 <td><a href="detail_commande.php?id=<?=$row['num_order']?>"><i class="fas fa-edit" ></i></a></td>
-                <td><a href="listeCommande.php?action=supprimer&id=<?=$row['num_order']?>;"><i class="fas fa-trash-alt" style="color: red;"></i></a></td>
+                <td><a href="listeCommande.php?action=supprimer&id=<?=$row['num_order']?>"><i class="fas fa-trash-alt" style="color: red;"></i></a></td>
 
             </tr>
             <?php

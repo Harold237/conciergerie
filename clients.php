@@ -16,8 +16,10 @@
 
 
 <?php
+session_start();
 include ('./connexion.php');
 include ('navbar.php');
+session_unset();
 ?>
 <div class="input-group" style="text-align: center;margin-left:20%;margin-bottom: 5%;">
 <form action="clients.php" method="post" class="d-flex">
