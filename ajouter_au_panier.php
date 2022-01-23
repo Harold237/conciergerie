@@ -34,6 +34,7 @@ if (isset($_POST['add'])){
         $_SESSION['cart'][0] = $item_array;
         print_r($_SESSION['cart']);
     }
+    header('location: index.php?num='.$_POST['num']);
 }
 
 

@@ -35,6 +35,7 @@ require_once ('./connexion.php');
             ?>
             <div class="col-md-3 col-sm-6 my-3 my-md-0" >
                 <form action="./ajouter_au_panier.php" method="post">
+                    <input type="hidden" name="num" value="<?php  echo $_GET['num'];?>">
                     <div class="card shadow"style="margin-top:10px" >
                         <div>
                             <img src="<?=$row['product_image']?>" alt="Image1" class="img-fluid card-img-top">

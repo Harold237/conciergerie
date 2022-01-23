@@ -11,26 +11,24 @@
 		$id="22-SPR-".$data['total'];
 		$nom = mysqli_real_escape_string($conn, $_POST['nom']);
 		$email = mysqli_real_escape_string($conn, $_POST['email']);
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 		$face=mysqli_real_escape_string($conn, $_POST['facebook']);
 		$insta=mysqli_real_escape_string($conn, $_POST['insta']);
 		
 
 		$query = "INSERT INTO client(num_client,name_client, email_client,login_fb,login_insta, id_memebership) VALUES('$id','$nom', '$email','$face','$insta', 1)";
-=======
+
 		$membership=(int)mysqli_real_escape_string($conn, $_POST['drone']);
 		$tel = mysqli_real_escape_string($conn, $_POST['tel']);
 		
 
 		$query = "INSERT INTO client(num_client,name_client, email_client, id_memebership) VALUES('$id','$nom', '$email',1)";
->>>>>>> 36c48db6de9c109f7c700c01c1e6b993a5307a1d
-=======
+
 		
 		
 
 		$query = "INSERT INTO client(num_client,name_client, email_client, id_memebership) VALUES('$id','$nom', '$email', 1)";
->>>>>>> a79ff645dc7f4acbc87737ddd095682ceb096da9
+
 		if (mysqli_query($conn, $query)) 
 		{
 			
