@@ -37,7 +37,7 @@ require_once ('./connexion.php');
                 <form action="./ajouter_au_panier.php" method="post">
                     <div class="card shadow"style="margin-top:10px" >
                         <div>
-                            <img src="<?=$row['product_image']?>" alt="Image1" class="img-fluid card-img-top">
+                            <!--<img src="<?=$row['product_image']?>" alt="Image1" class="img-fluid card-img-top">-->
                         </div>
                         <div class="card-body">
                             <h5 class="card-title"><?=$row['name_product']?></h5>

@@ -4,8 +4,9 @@ session_start();
 
 
 echo '<pre>';
-var_dump();
-echo $sql = "UPDATE `contenirproduct` SET `amount_product`=".$_POST['amount_product']." WHERE `nu`=".$_POST['id_ligne']."";
+
+echo $sql = "UPDATE contenirproduct SET amount_product=".$_POST['amount_product']." WHERE num_product='".$_POST['num_product']."' and
+ num_order='".$_POST['num_order']."'";
 $result = mysqli_query($conn, $sql);
 
 header('location: ./listeCommande.php');

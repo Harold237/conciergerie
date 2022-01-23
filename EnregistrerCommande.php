@@ -2,31 +2,31 @@
 
 include("./connexion.php");
 include("./header.php");
-$connect = mysqli_connect('127.0.0.1', "root", "root", "projet_base_de_donnees", '8889');
+
 $req2 = "SELECT * FROM product";
 $req_aff = mysqli->query("SELECT num_product,name_product,buy_price FROM product where num_product =  '$num_product'");
-$result = $connect->query($req2);
+$result = $conn->query($req2);
 $row = $result->fetch_array();
 if (isset($_POST["Enregistrer"])) {
     $num_order = $_POST["num_order"];
     $date_order = $_POST["date_order"];
     $status_order = $_POST["status_order"];
     $num_client = $_POST["num_client"];
-    $num_product = mysqli_real_escape_string($connect, $_POST['num_product']);
-    $name_product = mysqli_real_escape_string($connect, $_POST['name_product']);
-    $amount_product = mysqli_real_escape_string($connect, $_POST['amount_product']);
+    $num_product = mysqli_real_escape_string($conn, $_POST['num_product']);
+    $name_product = mysqli_real_escape_string($conn, $_POST['name_product']);
+    $amount_product = mysqli_real_escape_string($conn, $_POST['amount_product']);
     $req = "INSERT INTO `order_`(`num_order`, `date_order`, `status_order`, `num_client`) VALUES ('$num_order','$date_order','$status_order','$num_client')";
     $req1 = "INSERT INTO 'contenirproduct'('num_order','num_product','amount_product') VALUES ('$num_order','$num_product','$amount_product')";
-    $exe = mysqli_query($connect, $req);
-    $exe1 = mysqli_query($connect, $req1);
-    $id = mysqli_insert_id($connect);
+    $exe = mysqli_query($conn, $req);
+    $exe1 = mysqli_query($conn, $req1);
+    $id = mysqli_insert_id($conn);
 }
 if (isset($_POST["Ajouter"])) {
     $num_order = $_POST["num_order"];
-    $num_product = mysqli_real_escape_string($connect, $_POST['num_product']);
+    $num_product = mysqli_real_escape_string($conn, $_POST['num_product']);
     $req_aff = mysqli->query("SELECT num_product,name_product,buy_price FROM product where num_product =  '$num_product'");
 
-    $id = mysqli_insert_id($connect);
+    $id = mysqli_insert_id($conn);
 }
 
 ?>
