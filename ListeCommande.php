@@ -20,7 +20,7 @@ include ('./connexion.php');
 //$conn = mysqli_connect('127.0.0.1',"root","root","projet_base_de_donnees",'8889');
 $req = 'SELECT * FROM order_ natural join client';
 $result = $conn->query($req);
-include ('./header.php');
+include ('./navbar.php');
 if(isset($_GET['action']) && $_GET['action']=='supprimer' ){
     $sql = "DELETE FROM order_ WHERE num_order ='".$_GET['id']."'";
 
@@ -52,7 +52,7 @@ if(isset($_GET['action']) && $_GET['action']=='supprimer' ){
                 <td><?=$row['status_order']?></td>
                 <td><?=$row['num_client']?></td>
                 <td><a href="detail_commande.php?id=<?=$row['num_order']?>"><i class="fas fa-edit" ></i></a></td>
-                <td><a href="listeCommande.php?action=supprimer&id=<?=$row['num_order']?>"><i class="fas fa-trash-alt" style="color: red;"></i></a></td>
+                <td><a href="listeCommande.php?action=supprimer&id=<?=$row['num_order']?>;"><i class="fas fa-trash-alt" style="color: red;"></i></a></td>
 
             </tr>
             <?php

@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav" >
             <a class="nav-item nav-link active" href="clients.php" style="color: white;">Clients <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#" style="color: white;">Commandes</a>
+            <a class="nav-item nav-link" href="listeCommande.php" style="color: white;">Commandes</a>
         </div>
     </div>
 </nav>

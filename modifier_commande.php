@@ -9,6 +9,6 @@ echo $sql = "UPDATE contenirproduct SET amount_product=".$_POST['amount_product'
  num_order='".$_POST['num_order']."'";
 $result = mysqli_query($conn, $sql);
 
-header('location: ./listeCommande.php');
+header('location: ./detail_commande.php?id='.$_GET['id']);
 
 ?>

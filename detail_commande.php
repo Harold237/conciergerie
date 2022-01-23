@@ -24,7 +24,7 @@ require_once ('./connexion.php');
     <body class="bg-light">
 
     <?php
-    require_once ('./header.php');
+    require_once ('./navbar.php');
     if (isset($_GET['id'])){
         $id=    $_GET['id'];
     }
@@ -34,12 +34,12 @@ require_once ('./connexion.php');
             $sql = "DELETE FROM contenirproduct WHERE num_order ='".$_GET['num_order']."' and num_product='".$_GET['num_product']."'";
 
             $result = mysqli_query($conn, $sql);
-            header('location: listeCommande.php');
+            header('location: detail_commande.php?id='.$_GET['id']);
         }
     }
     ?>
 
-    <div class="container-fluid">
+    <div class="container-fluid" style="margin-top: 5%;">
         <div class="row px-5">
             <div class="col-md-7">
                 <div class="shopping-cart">
@@ -55,11 +55,11 @@ require_once ('./connexion.php');
                     $result = mysqli_query($conn, $sql);
                     while ($row = mysqli_fetch_assoc($result)){
                         ?>
-                        <form action="./modifier_commande.php" method="post" class="cart-items">
+                        <form action="./modifier_commande.php?id=<?php echo $_GET['id'];?>" method="post" class="cart-items">
                             <div class="border rounded">
                                 <div class="row bg-white">
                                     <div class="col-md-3 pl-0">
-                                        <!--<img src="<?=$row['product_image']?>" alt="Image1" class="img-fluid">-->
+                                        <img src="<?=$row['product_image']?>" alt="Image1" class="img-fluid">
                                     </div>
                                     <div class="col-md-6">
                                         <h5 class="pt-2"><?=$row['name_product']?></h5>
@@ -70,7 +70,7 @@ require_once ('./connexion.php');
                                         <input type="hidden" name="num_order" value="<?=$row['num_order']?>">
                                         <div class="col-md-12 row">
                                             <div class="col-md-6"><button type="submit" class="btn btn-info mx-2">Modifier </button></div>
-                                            <div class="col-md-6"><a href="detail_commande.php?action=supprimer&num_product=<?=$row['num_product']?>&num_order=<?=$row['num_order']?>" class="btn btn-warning mx-2">Supprimer </a></div>
+                                            <div class="col-md-6"><a href="detail_commande.php?action=supprimer&num_product=<?=$row['num_product']?>&num_order=<?=$row['num_order']?>&id=<?php echo $_GET['id'];?>" class="btn btn-warning mx-2">Supprimer </a></div>
                                         </div>
                                         <br>
                                     </div>
