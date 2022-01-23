@@ -11,13 +11,16 @@
 		$id="22-SPR-".$data['total'];
 		$nom = mysqli_real_escape_string($conn, $_POST['nom']);
 		$email = mysqli_real_escape_string($conn, $_POST['email']);
-		$membership=(int)mysqli_real_escape_string($conn, $_POST['drone']);
-		$tel = mysqli_real_escape_string($conn, $_POST['tel']);
+		
 		
 
-		$query = "INSERT INTO client(num_client,name_client, email_client, id_memebership) VALUES('$id','$nom', '$email', '$membership')";
+		$query = "INSERT INTO client(num_client,name_client, email_client, id_memebership) VALUES('$id','$nom', '$email', 1)";
 		if (mysqli_query($conn, $query)) 
 		{
+			
+			$query = "INSERT INTO comptefidelite(date_création,	points, num_client ) VALUES(curdate(),100, '$id')";
+			mysqli_query($conn, $query);
+			 
 			$number = count($_POST["name"]);
 			
 			

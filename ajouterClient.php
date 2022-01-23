@@ -19,7 +19,7 @@
 </head>
 
 <body  >
-  <div style="margin:10%" >
+  <div style="margin:10%;margin-right:20%" >
 
   <h1>Ajouter Client</h1>
   
@@ -27,12 +27,7 @@
   
   
 	<form method="POST" action="ajoutClient.php" id="add" name="add" autocomplete="off">
-				<input type="radio" id="silver" name="drone" value="1" checked style="margin-left:10%;height: 25px;width: 25px; vertical-align: middle; background-color: #ffa500;">
-                <label for="huey" style="font-weight:bold;font-size:23px;">Silver</label>
-                <input type="radio" id="gold" name="drone" value="2" style="margin-left:10%;height: 25px;width: 25px; vertical-align: middle;">
-                <label for="dewey"style="font-weight:bold;font-size:23px;" >Gold</label>
-                <input type="radio" id="Platinum" name="drone" value="3" style="margin-left:10%;height: 25px;width: 25px; vertical-align: middle;">
-                <label for="louie" style="font-weight:bold;font-size:23px;">Platinum</label>
+				
 		 		
                 <div class="form-group">
 		 			<label for="nom" style="font-weight:bold;font-size:19px;">Nom: </label>

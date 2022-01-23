@@ -4,14 +4,14 @@ include ('./connexion.php');
 //requete pour avoir le nom, email,login_fb,login_insta,membership et points
 $req = "SELECT * FROM client natural join membership natural join 
     comptefidelite  where num_client ='".$_GET['num']."'";
-$result = $conn->query($req);
-$row = $result->fetch_array();
+$result = mysqli_query($conn, $req);
+$row = mysqli_fetch_assoc($result);
 //requete pour avoir les adresses du client
 $req1="select * from adress where id_client='".$_GET['num']."'";
-$result1=$conn->query($req1);
+$result1= mysqli_query($conn,$req1); 
 //requete pour avoir les numéros téléphones du client
 $req2="select * from contactdetails where num_client='".$_GET['num']."'";
-$result2=$conn->query($req2);
+$result2= mysqli_query($conn,$req2);
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -77,7 +77,7 @@ $result2=$conn->query($req2);
                                 <p class="mb-0">Nom complet:</p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0">J<?php echo  $row['name_client'] ?></p>
+                                <p class="text-muted mb-0"><?php echo  $row['name_client'] ?></p>
                             </div>
                         </div>
                         <hr>

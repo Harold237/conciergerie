@@ -18,10 +18,10 @@
 <?php
 include ('./connexion.php');
 ?>
-<div class="input-group" style="text-align: center;">
+<div class="input-group" style="text-align: center;margin-left:20%">
 <form action="clients.php" method="post" class="d-flex">
   <div class="form-outline" style="width: 500px;">
-      <input type="search" name="search" class="form-control" placeholder="Chercher un client par son nom ou son identifiant" />
+      <input type="search" name="search" class="form-control" placeholder="Chercher un client par son nom ou son identifiant"  />
   </div>
     <button type="submit" class="btn btn-danger">
         <i class="fas fa-search"></i>
