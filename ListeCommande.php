@@ -38,6 +38,7 @@ if(isset($_GET['action']) && $_GET['action']=='supprimer' ){
         <th scope="col">NUMERO CLIENT</th>
         <th scope="col">Modifier</th>
         <th scope="col">Supprimer</th>
+        <th scope="col">Facture</th>
         </thead>
         <tbody>
         <?php
@@ -53,6 +54,7 @@ if(isset($_GET['action']) && $_GET['action']=='supprimer' ){
                 <td><?=$row['num_client']?></td>
                 <td><a href="detail_commande.php?id=<?=$row['num_order']?>"><i class="fas fa-edit" ></i></a></td>
                 <td><a href="listeCommande.php?action=supprimer&id=<?=$row['num_order']?>"><i class="fas fa-trash-alt" style="color: red;"></i></a></td>
+                <td><a href="facture.php?num_order=<?=$row['num_order']?>"><i class="fas fa-file-invoice-dollar"></i></td>
 
             </tr>
             <?php
