@@ -16,4 +16,3 @@ foreach ($_SESSION['cart'] as $cart){
 
 }
 header('location: listeCommande.php?num='.$_GET['num']);
-
