@@ -26,15 +26,19 @@ require_once ('./connexion.php');
 <?php
 require_once ('./navbar.php');
 if(isset($_POST['num_product'])){
-$sql = "INSERT INTO contenirproduct(num_order,num_product, amount_product) VALUES ('".$_GET['num_order']."','".$_POST['num_product']."', 1)";
+$sql = "INSERT INTO contenirproduct(num_order,num_product, amount_product) VALUES ('".$_GET['num_order']."','".$_POST['num_product']."', '".$_POST['amount_product']."')";
 
 $result = mysqli_query($conn, $sql);
 }
 ?>
-<div class="container">
+<div class="container" style="margin-top:10%">
+<a href="detail_commande.php?id=<?= $_GET['num_order']?>"> 
+<h5> Retour aux détails de la commande </h5>
+</a>
+<h3 >vous etes entrain d'ajouter dans la commande numero :<?= $_GET['num_order']?> </h1>
     <div class="row text-center py-5">
         <?php
-        $sql = "SELECT * FROM product";
+       $sql ="select * from product where num_product  not in (select num_product from contenirproduct where num_order ='".$_GET['num_order']."')";
 
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_assoc($result)){

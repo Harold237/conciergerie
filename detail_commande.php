@@ -44,7 +44,7 @@ require_once ('./connexion.php');
             <div class="col-md-7">
                 <div class="shopping-cart">
                     <h6>My Cart</h6>
-                    <hr>
+					 <hr>
 
                     <?php
 
@@ -89,8 +89,10 @@ require_once ('./connexion.php');
                 </div>
             </div>
             <div class="col-md-4 offset-md-1 border rounded mt-5 bg-white h-25">
-
+<a href="modiferProduit_Ajout.php?num_order=<?php echo $id;?>" class="btn btn-success " style="width:60%;margin-left:20%;font-weight:bold;font-size:23px;margin-top:20px;margin-bottom:20px">ajouter produit </a>
+                 
                 <div class="pt-4">
+				  
                     <h6>DETAILS</h6>
                     <hr>
                     <div class="row price-details">
@@ -116,12 +118,13 @@ require_once ('./connexion.php');
                                 ?></h6>
                         </div>
                     </div>
+					
                 </div>
+				
 				
             </div>
 				
         </div>
-		<a href="modiferProduit_Ajout.php?num_order=<?php echo $id;?>" class="btn btn-warning mx-2">ajouter produit </a></div>
 		
     </div>
 
