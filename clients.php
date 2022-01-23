@@ -17,9 +17,8 @@
 
 <?php
 include ('./connexion.php');
-include ('navbar.php');
 ?>
-<div class="input-group" style="text-align: center;margin-left:20%;margin-bottom: 5%;">
+<div class="input-group" style="text-align: center;margin-left:20%">
 <form action="clients.php" method="post" class="d-flex">
   <div class="form-outline" style="width: 500px;">
       <input type="search" name="search" class="form-control" placeholder="Chercher un client par son nom ou son identifiant"  />
@@ -63,16 +62,23 @@ include ('navbar.php');
                   <td scope="row">'.$row['email_client'].'</td>
                  
                   <td scope="row">
+				  
+				   <a href="ficheClient.php?num='.$row['num_client'].'">
+				  
+				  <img src="img/display.png" style="width: 30px"/>
+                  
+                  </a>
                   <a href ="gestionClient.php?num_client='.$row['num_client'].'">
 				  
-				  <i class="fas fa-user-edit" style="color:green;font-size:25px"></i>
+				  <i class="fas fa-user-edit" style="color:green;font-size:25px;margin-left:20px"></i>
                   
                   </a>
-				  <a href="ficheClient.php?num='.$row['num_client'].'">
+				 
+					<a href="index.php?num='.$row['num_client'].'">
 				  
-				  <img src="img/display.png" style="width: 30px;margin-left:20px"/>
+				     <img src="img/add.png" style="width: 35px;margin-left:15px"/>
                   
-                  </a>
+                   </a>
                 
                
                  </tr>
