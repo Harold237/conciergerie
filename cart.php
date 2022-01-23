@@ -125,7 +125,7 @@ require_once ('./header.php');
                             echo $total;
                             ?></h6>
                     </div>
-                    <a href="./commander.php" class="btn btn-info btn-block mx-2">COMMMANDER</a>
+                    <a href="./commander.php?num=<?php echo $_GET['num']; ?>" class="btn btn-info btn-block mx-2">COMMMANDER</a>
                     <br>
                 </div>
             </div>
