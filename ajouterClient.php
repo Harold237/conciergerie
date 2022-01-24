@@ -17,7 +17,11 @@
 			 
         </style>
 </head>
+<?php
 
+include ('navbar.php');
+
+?>
 <body  >
   <div style="margin:10%;margin-right:20%" >
 

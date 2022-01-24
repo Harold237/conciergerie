@@ -103,7 +103,11 @@
 			 
         </style>
 </head>
+<?php
 
+include ('navbar.php');
+
+?>
 <body  style="margin:10%">
 	
 	<div class="container">

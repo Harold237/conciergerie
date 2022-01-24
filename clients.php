@@ -21,12 +21,12 @@ include ('./connexion.php');
 include ('navbar.php');
 session_unset();
 ?>
-<div class="input-group" style="text-align: center;margin-left:20%;margin-bottom: 5%;">
+<div class="input-group" style="text-align: center;margin-left:25%;margin-bottom: 5%;">
 <form action="clients.php" method="post" class="d-flex">
   <div class="form-outline" style="width: 500px;">
-      <input type="search" name="search" class="form-control" placeholder="Chercher un client par son nom ou son identifiant"  />
+      <input type="search" name="search" class="form-control" placeholder="Chercher un client par son nom ou son identifiant"  style=""/>
   </div>
-    <button type="submit" class="btn btn-danger">
+    <button type="submit" class="btn btn-danger" style="width:20%">
         <i class="fas fa-search"></i>
     </button>
 </form>
