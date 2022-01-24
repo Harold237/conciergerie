@@ -11,7 +11,7 @@
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
 
-<body>
+<body style="margin:10%">
 
 
 <?php
@@ -29,7 +29,11 @@ if(isset($_GET['action']) && $_GET['action']=='supprimer' ){
 }
 ?>
 <section>
-    <h2 style="margin-top:5%;margin-bottom:5%;text-align: center;">LISTE DES COMMANDES</h2>
+   
+	<form method="post" action="generateExcelFile.php">
+	 <h2 style="margin-top:5%">LISTE DES COMMANDES</h2>
+    <button type="submit" class="btn btn-success " style="width:30%;margin-left:20%;font-weight:bold;font-size:23px;margin-top:20px;float:right;margin-bottom:5%;">Exporter sous Excel</button>
+   </form>       
     <table class="table">
         <thead class="thead-dark">
         <th scope="col">NUMERO COMMANDE</th>
