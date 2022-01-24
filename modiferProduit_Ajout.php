@@ -27,7 +27,6 @@ require_once ('./connexion.php');
 require_once ('./navbar.php');
 if(isset($_POST['num_product'])){
 $sql = "INSERT INTO contenirproduct(num_order,num_product, amount_product) VALUES ('".$_GET['num_order']."','".$_POST['num_product']."', '".$_POST['amount_product']."')";
-
 $result = mysqli_query($conn, $sql);
 }
 ?>
@@ -35,7 +34,7 @@ $result = mysqli_query($conn, $sql);
 <a href="detail_commande.php?id=<?= $_GET['num_order']?>"> 
 <h5> Retour aux détails de la commande </h5>
 </a>
-<h3 >vous etes entrain d'ajouter dans la commande numero :<?= $_GET['num_order']?> </h1>
+<h3>vous etes entrain d'ajouter dans la commande numero :<?= $_GET['num_order']?> </h3>
     <div class="row text-center py-5">
         <?php
        $sql ="select * from product where num_product  not in (select num_product from contenirproduct where num_order ='".$_GET['num_order']."')";
